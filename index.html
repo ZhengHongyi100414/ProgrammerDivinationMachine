@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序员占卜机 Programmer's Divination Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <pre id="ascii-title">&gt;&gt;&gt;&gt; PROGRAMMER DIVINATOR &lt;&lt;&lt;&lt;</pre>
+    </header>
+    <main>
+        <button id="prophecy-btn">GENERATE PROPHECY</button>
+        <section id="prophecy-card" class="hidden">
+            <div id="prophecy-output"></div>
+        </section>
+    </main>
+    <footer>
+        <div class="toolbar">
+            <button id="share-btn">分享</button>
+            <button id="retry-btn">重试</button>
+        </div>
+    </footer>
+    <canvas id="matrix-rain" class="hidden"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

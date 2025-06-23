@@ -1,0 +1,265 @@
+body {
+    background: linear-gradient(135deg, #121212 0%, #1a0033 100%);
+    background-size: 200% 200%;
+    animation: bgmove 8s ease-in-out infinite alternate;
+    color: #00ff41;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes bgmove {
+    0% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+header {
+    text-align: center;
+    margin-top: 32px;
+}
+
+#ascii-title {
+    color: #b967ff;
+    font-size: 2.2rem;
+    text-shadow: 0 0 8px #b967ff, 0 0 24px #00ff41, 0 0 2px #fff;
+    cursor: pointer;
+    user-select: none;
+    letter-spacing: 2px;
+    transition: filter 0.2s;
+    filter: drop-shadow(0 0 6px #b967ff88);
+    border-bottom: 2px dashed #00ff41;
+    padding-bottom: 8px;
+}
+
+#ascii-title.pixel-shake {
+    animation: shake 0.2s linear 1;
+}
+
+@keyframes shake {
+    0% {
+        filter: blur(0.5px);
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-1px);
+    }
+
+    100% {
+        filter: blur(0);
+        transform: translateX(0);
+    }
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#prophecy-btn {
+    background: repeating-linear-gradient(135deg, #181818 0 8px, #222 8px 16px);
+    color: #00ff41;
+    font-size: 2rem;
+    border: 4px solid #b967ff;
+    border-radius: 12px;
+    padding: 24px 48px;
+    margin: 32px 0 24px 0;
+    font-family: inherit;
+    box-shadow: 0 0 16px #b967ff44, 0 0 0 4px #00ff4122 inset;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.1s;
+    outline: none;
+    letter-spacing: 2px;
+    text-shadow: 0 0 4px #00ff41, 0 0 2px #fff;
+    border-image: repeating-linear-gradient(90deg, #b967ff 0 8px, #00ff41 8px 16px) 8;
+    image-rendering: pixelated;
+}
+
+#prophecy-btn:hover {
+    animation: shake 0.2s linear 1;
+    box-shadow: 0 0 32px #b967ff99, 0 0 0 8px #00ff4144 inset;
+    transform: scale(1.04);
+}
+
+#prophecy-card {
+    background: linear-gradient(120deg, #181818ee 60%, #1a0033cc 100%);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px #b967ff55, 0 1.5px 0 #00ff41, 0 0 24px #00ff4144;
+    padding: 32px 36px;
+    margin: 0 auto 32px auto;
+    min-width: 340px;
+    max-width: 520px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: #00ff41;
+    border: 2.5px solid #00ff41;
+    position: relative;
+    z-index: 2;
+    transition: box-shadow 0.3s, background 0.3s;
+    border-image: repeating-linear-gradient(135deg, #00ff41 0 8px, #b967ff 8px 16px) 8;
+    overflow: hidden;
+}
+
+#prophecy-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, #00ff4111 3px 4px);
+    opacity: 0.18;
+    z-index: 1;
+}
+
+#prophecy-card.hidden {
+    display: none;
+}
+
+#prophecy-output {
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    white-space: pre-line;
+    line-height: 1.7;
+    letter-spacing: 1.2px;
+    text-shadow: 0 0 6px #00ff41cc, 0 0 2px #fff;
+    position: relative;
+    z-index: 2;
+}
+
+#prophecy-output::after {
+    content: '_';
+    animation: blink 1s steps(1) infinite;
+    color: #00ff41;
+    margin-left: 2px;
+    opacity: 0.7;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 0.7;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+.toolbar {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    background: rgba(18, 18, 18, 0.7);
+    border-radius: 12px;
+    box-shadow: 0 2px 16px #b967ff33, 0 0 0 2px #00ff4133;
+    padding: 10px 32px;
+    position: relative;
+    z-index: 3;
+}
+
+.toolbar button {
+    background: #181818;
+    color: #b967ff;
+    border: 2px solid #00ff41;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 0 8px #00ff4133;
+    transition: box-shadow 0.2s, transform 0.1s;
+    text-shadow: 0 0 2px #b967ff, 0 0 2px #fff;
+    border-image: repeating-linear-gradient(90deg, #b967ff 0 8px, #00ff41 8px 16px) 8;
+    image-rendering: pixelated;
+}
+
+.toolbar button:hover {
+    animation: shake 0.2s linear 1;
+    box-shadow: 0 0 16px #b967ff99;
+    color: #00ff41;
+    background: #222244;
+}
+
+#matrix-rain {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99;
+    display: block;
+}
+
+#matrix-rain.hidden {
+    display: none;
+}
+
+.coffee-cup {
+    position: fixed;
+    width: 48px;
+    height: 48px;
+    z-index: 100;
+    animation: appear-cup 0.8s;
+}
+
+@keyframes appear-cup {
+    from {
+        opacity: 0;
+        transform: scale(0.7) rotate(-20deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (max-width: 600px) {
+    #prophecy-card {
+        min-width: 0;
+        max-width: 98vw;
+        padding: 18px 6vw;
+        font-size: 1rem;
+    }
+
+    #prophecy-btn {
+        font-size: 1.2rem;
+        padding: 14px 10vw;
+    }
+
+    .toolbar {
+        gap: 12px;
+        padding: 8px 2vw;
+    }
+
+    .coffee-cup {
+        width: 32px;
+        height: 32px;
+    }
+}
